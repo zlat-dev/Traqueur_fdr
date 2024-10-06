@@ -1,0 +1,10 @@
+2024-10-06 22:16:47,258 | DEBUG    | 0022 | Chargement des dépendances
+2024-10-06 22:16:47,258 | INFO     | 0023 | Chargement des dépendances
+2024-10-06 22:16:47,258 | WARNING  | 0024 | Chargement des dépendances
+2024-10-06 22:16:47,258 | ERROR    | 0025 | Chargement des dépendances
+2024-10-06 22:16:47,258 | CRITICAL | 0026 | Chargement des dépendances
+2024-10-06 22:16:47,949 | DEBUG    | 0022 | Démarrage Traqueur-fdr
+2024-10-06 22:16:47,968 | INFO     | 0023 | Démarrage Traqueur-fdr
+2024-10-06 22:16:47,968 | WARNING  | 0024 | Démarrage Traqueur-fdr
+2024-10-06 22:16:47,968 | ERROR    | 0025 | Démarrage Traqueur-fdr
+2024-10-06 22:16:47,968 | CRITICAL | 0026 | Démarrage Traqueur-fdr

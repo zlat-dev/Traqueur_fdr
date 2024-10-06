@@ -1,0 +1,35 @@
+2024-10-06 22:16:49,021 | DEBUG    | 0022 | Création de l'arborescence DIR
+2024-10-06 22:16:49,022 | INFO     | 0023 | Création de l'arborescence DIR
+2024-10-06 22:16:49,022 | WARNING  | 0024 | Création de l'arborescence DIR
+2024-10-06 22:16:49,022 | ERROR    | 0025 | Création de l'arborescence DIR
+2024-10-06 22:16:49,022 | CRITICAL | 0026 | Création de l'arborescence DIR
+2024-10-06 22:16:49,061 | DEBUG    | 0022 | Organisation des widgets
+2024-10-06 22:16:49,061 | INFO     | 0023 | Organisation des widgets
+2024-10-06 22:16:49,061 | WARNING  | 0024 | Organisation des widgets
+2024-10-06 22:16:49,061 | ERROR    | 0025 | Organisation des widgets
+2024-10-06 22:16:49,061 | CRITICAL | 0026 | Organisation des widgets
+2024-10-06 22:16:49,128 | DEBUG    | 0022 | Création des boites à outils
+2024-10-06 22:16:49,129 | INFO     | 0023 | Création des boites à outils
+2024-10-06 22:16:49,129 | WARNING  | 0024 | Création des boites à outils
+2024-10-06 22:16:49,129 | ERROR    | 0025 | Création des boites à outils
+2024-10-06 22:16:49,130 | CRITICAL | 0026 | Création des boites à outils
+2024-10-06 22:16:49,138 | DEBUG    | 0022 | Création du menu
+2024-10-06 22:16:49,138 | INFO     | 0023 | Création du menu
+2024-10-06 22:16:49,139 | WARNING  | 0024 | Création du menu
+2024-10-06 22:16:49,139 | ERROR    | 0025 | Création du menu
+2024-10-06 22:16:49,139 | CRITICAL | 0026 | Création du menu
+2024-10-06 22:16:49,149 | DEBUG    | 0022 | Création de la barre de status
+2024-10-06 22:16:49,149 | INFO     | 0023 | Création de la barre de status
+2024-10-06 22:16:49,149 | WARNING  | 0024 | Création de la barre de status
+2024-10-06 22:16:49,150 | ERROR    | 0025 | Création de la barre de status
+2024-10-06 22:16:49,150 | CRITICAL | 0026 | Création de la barre de status
+2024-10-06 22:16:49,153 | DEBUG    | 0022 | Création des éléments fonctionnels du programme
+2024-10-06 22:16:49,153 | INFO     | 0023 | Création des éléments fonctionnels du programme
+2024-10-06 22:16:49,153 | WARNING  | 0024 | Création des éléments fonctionnels du programme
+2024-10-06 22:16:49,153 | ERROR    | 0025 | Création des éléments fonctionnels du programme
+2024-10-06 22:16:49,153 | CRITICAL | 0026 | Création des éléments fonctionnels du programme
+2024-10-06 22:16:49,157 | DEBUG    | 0022 | Application du style
+2024-10-06 22:16:49,157 | INFO     | 0023 | Application du style
+2024-10-06 22:16:49,157 | WARNING  | 0024 | Application du style
+2024-10-06 22:16:49,157 | ERROR    | 0025 | Application du style
+2024-10-06 22:16:49,157 | CRITICAL | 0026 | Application du style
