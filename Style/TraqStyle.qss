@@ -1,0 +1,28 @@
+/* On sélectionne tous les boutons */
+QPushButton {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+
+    background-color: QLinearGradient(
+        x1: 0, y1: 0, x2: 0, y2: 1,     /* Pour définir la direction du dégradé */
+        stop: 0 #1e5799,                /* A   0% -> couleur # 1e5799 */
+        stop: .5 #2989d8,               /* A  50% -> couleur # 2989d8 */
+        stop: .51 #207cca,              /* A  51% -> couleur # 207cca */
+        stop: 1 #7db9e8                 /* A 100% -> couleur # 7db9e8 */
+    );
+    border: 1px solid black;
+    border-radius: 1px;
+}
+
+/* On sélectionne le widget ayant pour objectName "okButton" */
+#btnOk {
+    background: green;
+    color: white;
+    font-weight: bold;
+}
+
+/* On sélectionne tous les labels */
+QLabel {
+    font-size: 12px;
+}

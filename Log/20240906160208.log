@@ -1,0 +1,40 @@
+2024-09-06 16:02:08,022 | DEBUG    | 0022 | Création de l'arborescence DATA
+2024-09-06 16:02:08,022 | INFO     | 0023 | Création de l'arborescence DATA
+2024-09-06 16:02:08,023 | WARNING  | 0024 | Création de l'arborescence DATA
+2024-09-06 16:02:08,023 | ERROR    | 0025 | Création de l'arborescence DATA
+2024-09-06 16:02:08,023 | CRITICAL | 0026 | Création de l'arborescence DATA
+2024-09-06 16:02:08,127 | DEBUG    | 0022 | Création de l'arborescence DIR
+2024-09-06 16:02:08,128 | INFO     | 0023 | Création de l'arborescence DIR
+2024-09-06 16:02:08,128 | WARNING  | 0024 | Création de l'arborescence DIR
+2024-09-06 16:02:08,128 | ERROR    | 0025 | Création de l'arborescence DIR
+2024-09-06 16:02:08,128 | CRITICAL | 0026 | Création de l'arborescence DIR
+2024-09-06 16:02:08,168 | DEBUG    | 0022 | Organisation des widgets
+2024-09-06 16:02:08,168 | INFO     | 0023 | Organisation des widgets
+2024-09-06 16:02:08,169 | WARNING  | 0024 | Organisation des widgets
+2024-09-06 16:02:08,169 | ERROR    | 0025 | Organisation des widgets
+2024-09-06 16:02:08,169 | CRITICAL | 0026 | Organisation des widgets
+2024-09-06 16:02:08,230 | DEBUG    | 0022 | Création des boites à outils
+2024-09-06 16:02:08,231 | INFO     | 0023 | Création des boites à outils
+2024-09-06 16:02:08,231 | WARNING  | 0024 | Création des boites à outils
+2024-09-06 16:02:08,231 | ERROR    | 0025 | Création des boites à outils
+2024-09-06 16:02:08,231 | CRITICAL | 0026 | Création des boites à outils
+2024-09-06 16:02:08,234 | DEBUG    | 0022 | Création du menu
+2024-09-06 16:02:08,234 | INFO     | 0023 | Création du menu
+2024-09-06 16:02:08,234 | WARNING  | 0024 | Création du menu
+2024-09-06 16:02:08,234 | ERROR    | 0025 | Création du menu
+2024-09-06 16:02:08,234 | CRITICAL | 0026 | Création du menu
+2024-09-06 16:02:08,239 | DEBUG    | 0022 | Création de la barre de status
+2024-09-06 16:02:08,239 | INFO     | 0023 | Création de la barre de status
+2024-09-06 16:02:08,239 | WARNING  | 0024 | Création de la barre de status
+2024-09-06 16:02:08,239 | ERROR    | 0025 | Création de la barre de status
+2024-09-06 16:02:08,239 | CRITICAL | 0026 | Création de la barre de status
+2024-09-06 16:02:08,240 | DEBUG    | 0022 | Création des éléments fonctionnels du programme
+2024-09-06 16:02:08,240 | INFO     | 0023 | Création des éléments fonctionnels du programme
+2024-09-06 16:02:08,240 | WARNING  | 0024 | Création des éléments fonctionnels du programme
+2024-09-06 16:02:08,240 | ERROR    | 0025 | Création des éléments fonctionnels du programme
+2024-09-06 16:02:08,240 | CRITICAL | 0026 | Création des éléments fonctionnels du programme
+2024-09-06 16:02:08,242 | DEBUG    | 0022 | Application du style
+2024-09-06 16:02:08,242 | INFO     | 0023 | Application du style
+2024-09-06 16:02:08,242 | WARNING  | 0024 | Application du style
+2024-09-06 16:02:08,242 | ERROR    | 0025 | Application du style
+2024-09-06 16:02:08,242 | CRITICAL | 0026 | Application du style
