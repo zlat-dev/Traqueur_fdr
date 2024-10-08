@@ -12,7 +12,7 @@ def param_cible_function(fichierparam_cible, sectionparam_cible, critereparam_ci
 
     # ----------------------------------------------------------------
     # Retour de la valeur du paramètre
-    nomfichierparam = os.path.join(os.getcwd(),'Traqueur_fdr/',fichierparam_cible)
+    nomfichierparam = os.path.join(os.getcwd(),'Python/Traqueur_fdr/',fichierparam_cible)
     nomsectionparam = sectionparam_cible
     nomcritereparam = critereparam_cible
     Parserparam = configparser.ConfigParser()

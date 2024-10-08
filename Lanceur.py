@@ -54,7 +54,7 @@ import TraqParsernotif
 import TraqLogW
 # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
 # journalisation
-TraqLogW.param_log_function("user","Chargement des dépendances")
+TraqLogW.param_log_function("user","INFO","Chargement des dépendances")
 # 
 # ----------------------------------------------------------------
 # Subclass QColor to customize your QColor
@@ -89,7 +89,7 @@ class MainWindow(QMainWindow):
         self.createStatusBar()
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","Création des éléments fonctionnels du programme")
+        TraqLogW.param_log_function("user","INFO","Création des éléments fonctionnels du programme")
         #         
     # ----------------------------------------------------------------
     # Les widgets de l'appli          
@@ -117,7 +117,7 @@ class MainWindow(QMainWindow):
             root.addChild(node)
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","Création de l'arborescence DATA")
+        TraqLogW.param_log_function("user","INFO","Création de l'arborescence DATA")
         
         # ----------------------------------------------------------------
         # Utilisation du widget QTreeView pour dir 
@@ -128,7 +128,7 @@ class MainWindow(QMainWindow):
         treeView2.expandToDepth(0)    
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","Création de l'arborescence DIR")
+        TraqLogW.param_log_function("user","INFO","Création de l'arborescence DIR")
         
         # ----------------------------------------------------------------
         # QSplitter permet de diviser l'espace en sous-zones.                
@@ -171,11 +171,11 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(splitterHorizMid) 
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","Organisation des widgets")
+        TraqLogW.param_log_function("user","INFO","Organisation des widgets")
         #  
     def fillEditor(self, editor):
         # On charge le contenu du fichier dans l'éditeur
-        with open("Traqueur_fdr/TraqLogW.py", "r") as file:
+        with open("Python/Traqueur_fdr/TraqLogW.py", "r") as file:
             content = "".join(file.readlines())
         editor.setText(content)
         # 
@@ -250,7 +250,7 @@ class MainWindow(QMainWindow):
         
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","Création des boites à outils")
+        TraqLogW.param_log_function("user","INFO","Création des boites à outils")
         # 
     # ----------------------------------------------------------------
     # Menu 
@@ -277,7 +277,7 @@ class MainWindow(QMainWindow):
         file_menu = menu.addMenu("A propos")
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","Création du menu")
+        TraqLogW.param_log_function("user","INFO","Création du menu")
         # 
     # ----------------------------------------------------------------
     # barre de status
@@ -302,7 +302,7 @@ class MainWindow(QMainWindow):
         barrestatus.addPermanentWidget(label4_barrestatus)
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","Création de la barre de status")
+        TraqLogW.param_log_function("user","INFO","Création de la barre de status")
         # 
     # ----------------------------------------------------------------
     # Gestion des évènements   
@@ -310,7 +310,7 @@ class MainWindow(QMainWindow):
         print("click", s)
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","Click sur le bouton xxx")
+        TraqLogW.param_log_function("user","INFO","Click sur le bouton xxx")
         # 
     def createActions(self):
         icoParser = TraqParserconfig.param_cible_function("Config.conf","Chemins_rel","Chemin_Icones_svg")
@@ -353,35 +353,35 @@ class MainWindow(QMainWindow):
         # La méthode close est directement fournie par la classe QMainWindow.
         self.actionExit.triggered.connect(self.close)
         
-        self.actUndo = QAction(QIcon("actions/16/acrobat.svg"), "&Undo", self)
+        self.actUndo = QAction(QIcon("Python/Traqueur_fdr/Icon_set_svg/Breeze Classic/actions/16/acrobat.svg"), "&Undo", self)
         self.actUndo.setStatusTip("Undo")
         
-        self.actRedo = QAction(QIcon("actions/16/acrobat.svg"), "&Redo", self)
+        self.actRedo = QAction(QIcon("Python/Traqueur_fdr/Icon_set_svg/Breeze Classic/actions/16/acrobat.svg"), "&Redo", self)
         self.actRedo.setStatusTip("Redo")
 
-        self.actCopy = QAction(QIcon("actions/16/acrobat.svg"), "&Copy", self)
+        self.actCopy = QAction(QIcon("Python/Traqueur_fdr/Icon_set_svg/Breeze Classic/actions/16/acrobat.svg"), "&Copy", self)
         self.actCopy.setStatusTip("Copy")
         
-        self.actCut = QAction(QIcon("actions/16/acrobat.svg"), "Cu&t", self)
+        self.actCut = QAction(QIcon("Python/Traqueur_fdr/Icon_set_svg/Breeze Classic/actions/16/acrobat.svg"), "Cu&t", self)
         self.actCut.setStatusTip("Cut")
         
-        self.actPaste = QAction(QIcon("actions/16/acrobat.svg"), "&Paste", self)
+        self.actPaste = QAction(QIcon("Python/Traqueur_fdr/Icon_set_svg/Breeze Classic/actions/16/acrobat.svg"), "&Paste", self)
         self.actPaste.setStatusTip("Paste")
         
-        self.actAbout = QAction(QIcon("help-about.svg"), "About...", self)
+        self.actAbout = QAction(QIcon("Python/Traqueur_fdr/Icon_set_svg/Breeze Classic/help-about.svg"), "About...", self)
         self.actAbout.setStatusTip("About...")
         # 
     def newEntite(self):
         print("Création d'une nouvelle entité")
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","Création d'une entité")
+        TraqLogW.param_log_function("user","INFO","Création d'une entité")
         # 
     def newCible(self):
         print("Création d'une nouvelle cible")
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","Création d'une cible")
+        TraqLogW.param_log_function("user","INFO","Création d'une cible")
         # 
     # ----------------------------------------------------------------
     # Gestion de la fermeture
@@ -393,7 +393,7 @@ class MainWindow(QMainWindow):
         if reply == QMessageBox.Yes:
             # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
             # journalisation
-            TraqLogW.param_log_function("user","Fermeture de Traqueur_fdr")
+            TraqLogW.param_log_function("user","INFO","Fermeture de Traqueur_fdr")
             event.accept()
         else:
             event.ignore()
@@ -405,18 +405,18 @@ class MainWindow(QMainWindow):
 app = QApplication(sys.argv)
 # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
 # journalisation
-TraqLogW.param_log_function("user","Démarrage Traqueur-fdr")
+TraqLogW.param_log_function("user","INFO","Démarrage Traqueur-fdr")
 # 
 window = MainWindow()
 # 
 # style de l'appli avant affichage
 styleQss = TraqParserconfig.param_cible_function("Config.conf","Style","Style")
-with open("Traqueur_fdr/Style/"+styleQss,"r") as file:
+with open("Python/Traqueur_fdr/Style/"+styleQss,"r") as file:
     app.setStyleSheet(file.read())
 # 
 # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
 # journalisation
-TraqLogW.param_log_function("user","Application du style")
+TraqLogW.param_log_function("user","INFO","Application du style")
 # 
 # affichage
 window.show()
