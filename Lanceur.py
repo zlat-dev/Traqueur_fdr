@@ -175,7 +175,7 @@ class MainWindow(QMainWindow):
         #  
     def fillEditor(self, editor):
         # On charge le contenu du fichier dans l'éditeur
-        with open("Python/Traqueur_fdr/TraqLogW.py", "r") as file:
+        with open("TraqLogW.py", "r") as file:
             content = "".join(file.readlines())
         editor.setText(content)
         # 
@@ -339,11 +339,11 @@ class MainWindow(QMainWindow):
         self.actionNewC.setStatusTip("Nouvelle cible")
         self.actionNewC.triggered.connect(self.newCible)
         
-        icoOpen=icoParser+"actions/16/acrobat.svg" 
+        icoOpen=icoParser+"actions/16/rating.svg" 
         self.actionOpen = QAction(QIcon(icoOpen), "&Open...", self)
         self.actionOpen.setStatusTip("Open file")
         
-        icoSave=icoParser+"actions/16/acrobat.svg" 
+        icoSave=icoParser+"actions/16/rating.svg" 
         self.actionSave = QAction(QIcon(icoSave), "&Save", self)
         self.actionSave.setStatusTip("Save File")
         
@@ -353,22 +353,28 @@ class MainWindow(QMainWindow):
         # La méthode close est directement fournie par la classe QMainWindow.
         self.actionExit.triggered.connect(self.close)
         
-        self.actUndo = QAction(QIcon("Python/Traqueur_fdr/Icon_set_svg/Breeze Classic/actions/16/acrobat.svg"), "&Undo", self)
+        icoUndo=icoParser+"actions/16/rating.svg"
+        self.actUndo = QAction(QIcon(icoUndo), "&Undo", self)
         self.actUndo.setStatusTip("Undo")
         
-        self.actRedo = QAction(QIcon("Python/Traqueur_fdr/Icon_set_svg/Breeze Classic/actions/16/acrobat.svg"), "&Redo", self)
+        icoRedo=icoParser+"actions/16/rating.svg"
+        self.actRedo = QAction(QIcon(icoRedo), "&Redo", self)
         self.actRedo.setStatusTip("Redo")
 
-        self.actCopy = QAction(QIcon("Python/Traqueur_fdr/Icon_set_svg/Breeze Classic/actions/16/acrobat.svg"), "&Copy", self)
+        icoCopy=icoParser+"actions/16/rating.svg"
+        self.actCopy = QAction(QIcon(icoCopy), "&Copy", self)
         self.actCopy.setStatusTip("Copy")
         
-        self.actCut = QAction(QIcon("Python/Traqueur_fdr/Icon_set_svg/Breeze Classic/actions/16/acrobat.svg"), "Cu&t", self)
+        icoCut=icoParser+"actions/16/rating.svg"
+        self.actCut = QAction(QIcon(icoCut), "Cu&t", self)
         self.actCut.setStatusTip("Cut")
         
-        self.actPaste = QAction(QIcon("Python/Traqueur_fdr/Icon_set_svg/Breeze Classic/actions/16/acrobat.svg"), "&Paste", self)
+        icoPaste=icoParser+"actions/16/rating.svg"
+        self.actPaste = QAction(QIcon(icoPaste), "&Paste", self)
         self.actPaste.setStatusTip("Paste")
         
-        self.actAbout = QAction(QIcon("Python/Traqueur_fdr/Icon_set_svg/Breeze Classic/help-about.svg"), "About...", self)
+        icoAbout=icoParser+"help-about.svg"
+        self.actAbout = QAction(QIcon(icoAbout), "About...", self)
         self.actAbout.setStatusTip("About...")
         # 
     def newEntite(self):
@@ -411,7 +417,7 @@ window = MainWindow()
 # 
 # style de l'appli avant affichage
 styleQss = TraqParserconfig.param_cible_function("Config.conf","Style","Style")
-with open("Python/Traqueur_fdr/Style/"+styleQss,"r") as file:
+with open("Style/"+styleQss,"r") as file:
     app.setStyleSheet(file.read())
 # 
 # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<

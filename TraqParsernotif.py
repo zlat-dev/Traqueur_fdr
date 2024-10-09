@@ -12,7 +12,7 @@ def notif_cible_function(fichiernotif_cible, sectionnotif_cible, criterenotif_ci
 
     # ----------------------------------------------------------------
     # Retour de la valeur du paramètre
-    nomfichiernotif = os.path.join(os.getcwd(),'Python/Traqueur_fdr/',fichiernotif_cible)
+    nomfichiernotif = os.path.join(os.getcwd(),'',fichiernotif_cible)
     nomsectionnotif = sectionnotif_cible
     nomcriterenotif = criterenotif_cible
     Parsernotif = configparser.ConfigParser()
@@ -20,7 +20,7 @@ def notif_cible_function(fichiernotif_cible, sectionnotif_cible, criterenotif_ci
     try:
         Parsernotif.get(nomsectionnotif, nomcriterenotif)
         valeurnotif_cible = Parsernotif.get(nomsectionnotif, nomcriterenotif)
-        print(f"{nomcriterenotif}:", valeurnotif_cible)
+        #print(f"{nomcriterenotif}:", valeurnotif_cible)
         # 
         # a journaliser INFO
         # 

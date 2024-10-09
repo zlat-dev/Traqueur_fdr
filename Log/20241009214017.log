@@ -1,0 +1,9 @@
+2024-10-09 21:40:17,006 | INFO     | 0027 | Démarrage Traqueur-fdr
+2024-10-09 21:40:17,024 | INFO     | 0027 | Création de l'arborescence DATA
+2024-10-09 21:40:17,040 | INFO     | 0027 | Création de l'arborescence DIR
+2024-10-09 21:40:17,043 | INFO     | 0027 | Organisation des widgets
+2024-10-09 21:40:17,051 | INFO     | 0027 | Création des boites à outils
+2024-10-09 21:40:17,053 | INFO     | 0027 | Création du menu
+2024-10-09 21:40:17,055 | INFO     | 0027 | Création de la barre de status
+2024-10-09 21:40:17,056 | INFO     | 0027 | Création des éléments fonctionnels du programme
+2024-10-09 21:40:17,057 | INFO     | 0027 | Application du style
