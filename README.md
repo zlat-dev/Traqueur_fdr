@@ -45,11 +45,11 @@ ACTION
 ok - message bienvenue
 ok - affiche dir
 ok - boite dialogue fermeture
-ok - affiche json data
-ok - Créer une entité
-ok - Créer des cibles pour cette entité
-ok - Créer des agents rattachés à l'entité et connecter à une cible
-ok - Créer des objectifs pour une cible et connecter à un agent
+- affiche json data
+- Créer une entité
+- Créer des cibles pour cette entité
+- Créer des agents rattachés à l'entité et connecter à une cible
+- Créer des objectifs pour une cible et connecter à un agent
 
 --- créer un organisme avec agents et objectif final visé
 --- affecter des taches aux agents et les positionner dans la feuille de route
