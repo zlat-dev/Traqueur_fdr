@@ -24,7 +24,10 @@ ok - dans le layout mid-W
 ok --- un Treeview pour les données json
 ok --- un TreeView pour les dir
 ok --- splitter pour séparer et ajuster
-ok - un journal d'évènement appli
+ok - un journal d'évènement appli (file et stdout)
+ok --- log file par jour
+ok --- créer un journal de log et archiver les actions
+ok --- nettoyer le msg info
 
 des fichiers json pour les données
 une fenètre avec les noms des personnes en arborescence et objectifs et ssobjectifs
@@ -33,7 +36,7 @@ une fenètre graphique avec des stats
 une fenètre graphique avec la feuille de route
 une fenetre de log pour profil appli et profil log
 nettoyer les notifications
-nettoyer le msg début
+
 associer les user avec profil et logger
 associer les tips avec messages.conf et msglogger
 Nettoyer les icones
@@ -59,8 +62,6 @@ ok - boite dialogue fermeture
 --- exporter la feuille de route en png
 --- extraire la fiche d'un agent et ses stats
 --- extraire la fiche de l'objectif principal et les réalisations
---- créer un journal de log et archiver les actions
---- GESTION DU ON CLOSE JOURNALISATION
 
 STRUCTURE DES DONNÉES
 --- json organisme : id, nom, objectif principal rattaché
