@@ -45,7 +45,9 @@ from PySide6.QtWidgets import(
     QSpinBox,
     QSlider,
     QLineEdit,
-    QLCDNumber
+    QLCDNumber,
+    QDialog,
+    QDialogButtonBox
 )
 # ----------------------------------------------------------------
 # modules perso
@@ -54,7 +56,7 @@ import TraqParsernotif
 import TraqLogW
 # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
 # journalisation
-TraqLogW.param_log_function("user","INFO","Chargement des dépendances")
+TraqLogW.param_log_function("user","INFO","Dépendances chargées")
 # 
 # ----------------------------------------------------------------
 # Subclass QColor to customize your QColor
@@ -89,7 +91,7 @@ class MainWindow(QMainWindow):
         self.createStatusBar()
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","INFO","Création des éléments fonctionnels du programme")
+        TraqLogW.param_log_function("user","INFO","Eléments fonctionnels du programme créés")
         #         
     # ----------------------------------------------------------------
     # Les widgets de l'appli          
@@ -117,7 +119,7 @@ class MainWindow(QMainWindow):
             root.addChild(node)
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","INFO","Création de l'arborescence DATA")
+        TraqLogW.param_log_function("user","INFO","Arborescence DATA créée")
         
         # ----------------------------------------------------------------
         # Utilisation du widget QTreeView pour dir 
@@ -128,7 +130,7 @@ class MainWindow(QMainWindow):
         treeView2.expandToDepth(0)    
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","INFO","Création de l'arborescence DIR")
+        TraqLogW.param_log_function("user","INFO","Arborescence DIR créée")
         
         # ----------------------------------------------------------------
         # QSplitter permet de diviser l'espace en sous-zones.                
@@ -171,7 +173,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(splitterHorizMid) 
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","INFO","Organisation des widgets")
+        TraqLogW.param_log_function("user","INFO","Widgets organisés")
         #  
     def fillEditor(self, editor):
         # On charge le contenu du fichier dans l'éditeur
@@ -250,7 +252,7 @@ class MainWindow(QMainWindow):
         
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","INFO","Création des boites à outils")
+        TraqLogW.param_log_function("user","INFO","Boites à outils créée")
         # 
     # ----------------------------------------------------------------
     # Menu 
@@ -277,7 +279,7 @@ class MainWindow(QMainWindow):
         file_menu = menu.addMenu("A propos")
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","INFO","Création du menu")
+        TraqLogW.param_log_function("user","INFO","Menu créé")
         # 
     # ----------------------------------------------------------------
     # barre de status
@@ -302,7 +304,7 @@ class MainWindow(QMainWindow):
         barrestatus.addPermanentWidget(label4_barrestatus)
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
-        TraqLogW.param_log_function("user","INFO","Création de la barre de status")
+        TraqLogW.param_log_function("user","INFO","Barre de status créée")
         # 
     # ----------------------------------------------------------------
     # Gestion des évènements   
@@ -329,7 +331,7 @@ class MainWindow(QMainWindow):
         self.button_action2.triggered.connect(self.onMyToolBarButtonClick)
         self.button_action2.setCheckable(True)
         
-        icoNewE=icoParser+"preferences-desktop-user.svg" 
+        icoNewE=icoParser+"preferences-system-network.svg" 
         self.actionNewE = QAction(QIcon(icoNewE), "Créer une entité", self)
         self.actionNewE.setStatusTip("Nouvelle entité")
         self.actionNewE.triggered.connect(self.newEntite)
@@ -377,25 +379,30 @@ class MainWindow(QMainWindow):
         self.actAbout = QAction(QIcon(icoAbout), "About...", self)
         self.actAbout.setStatusTip("About...")
         # 
-    def newEntite(self):
-        print("Création d'une nouvelle entité")
-        # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
-        # journalisation
-        TraqLogW.param_log_function("user","INFO","Création d'une entité")
-        # 
+    def newEntite(self, s):
+        dlg = CustomDialog(self)
+        if dlg.exec():
+            # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
+            # journalisation
+            TraqLogW.param_log_function("user","INFO","Création d'une entité")
+            #
+        else:
+            # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
+            # journalisation
+            TraqLogW.param_log_function("user","INFO","Annulation création d'une entité")
+            #
     def newCible(self):
         print("Création d'une nouvelle cible")
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
         TraqLogW.param_log_function("user","INFO","Création d'une cible")
-        # 
+        #
     # ----------------------------------------------------------------
     # Gestion de la fermeture
     def closeEvent(self, event: QCloseEvent) -> None:
         reply = QMessageBox.question(self, self.windowTitle(),
                                      "Are you sure to quit?",
                                      QMessageBox.Yes, QMessageBox.No)
-
         if reply == QMessageBox.Yes:
             # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
             # journalisation
@@ -403,7 +410,40 @@ class MainWindow(QMainWindow):
             event.accept()
         else:
             event.ignore()
-            # 
+            #             
+# ----------------------------------------------------------------
+# Crée les subclass
+# et les affiche
+# ----------------------------------------------------------------   
+class CustomDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        self.setWindowTitle("Création d'une entité")
+
+        QBtn = (
+            QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+            )
+
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
+
+        layout = QVBoxLayout()
+        message = QLabel("Something happened, is that OK?")
+        nom = QLineEdit()
+        layout.addWidget(message)
+        layout.addWidget(nom)
+        layout.addWidget(self.buttonBox)
+        self.setLayout(layout)
+
+
+
+
+
+
+
+
 # ----------------------------------------------------------------
 # Crée l'application
 # et l'affiche
@@ -422,7 +462,7 @@ with open("Style/"+styleQss,"r") as file:
 # 
 # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
 # journalisation
-TraqLogW.param_log_function("user","INFO","Application du style")
+TraqLogW.param_log_function("user","INFO","Style appliqué")
 # 
 # affichage
 window.show()
