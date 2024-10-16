@@ -9,6 +9,16 @@ import os
 import configparser
 
 def param_cible_function(fichierparam_cible, sectionparam_cible, critereparam_cible):
+    """Récupère un paramètre de Config.conf. Le fichier Config.conf est structuré comme un ini.
+
+    Args:
+        fichierparam_cible (file): Le fichier Config.conf
+        sectionparam_cible (txt): La section concernée
+        critereparam_cible (txt): Le paramètre recherché
+
+    Returns:
+        txt: Le paramètre
+    """
 
     # ----------------------------------------------------------------
     # Retour de la valeur du paramètre
