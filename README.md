@@ -45,7 +45,7 @@ ACTION
 - ok - message bienvenue
 - ok - affiche dir
 - ok - boite dialogue fermeture
-- todo - fenetre modale création entité
+- todo - fenetre modale création entité (designer6)
 - affiche json data
 - Créer une entité
 - Créer des cibles pour cette entité
@@ -64,6 +64,6 @@ ACTION
 --- extraire la fiche de l'objectif principal et les réalisations
 
 STRUCTURE DES DONNÉES
---- json organisme : id, nom, objectif principal rattaché
+--- json entité : id, nom, objectif principal rattaché
 --- json agent : id, nom, poste
 --- json tache : id, nom, description, actions constituantes, critère de réussite

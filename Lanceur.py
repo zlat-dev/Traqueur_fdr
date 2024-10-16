@@ -379,7 +379,7 @@ class MainWindow(QMainWindow):
         self.actAbout = QAction(QIcon(icoAbout), "About...", self)
         self.actAbout.setStatusTip("About...")
         # 
-    def newEntite(self, s):
+    def newEntite(self, Dialog):
         dlg = CustomDialog(self)
         if dlg.exec():
             # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
