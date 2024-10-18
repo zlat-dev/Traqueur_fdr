@@ -1,6 +1,7 @@
 Traqueur_fdr
 
-Application destinée à gérer la répartition des tâches entre agents et les représenter dans une feuille de route globale d'un organisme
+Application destinée à gérer la répartition des tâches entre agents et les représenter dans une feuille de route globale d'un organisme.
+But pédagogique personnel pour apprendre python via pyside6.
 
 ORGANISATION
 - ok - une fenètre principale
