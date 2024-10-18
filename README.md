@@ -4,28 +4,28 @@ Application destinée à gérer la répartition des tâches entre agents et les 
 But pédagogique personnel pour apprendre python via pyside6.
 
 ORGANISATION
-- ok - une fenètre principale
-- ok - une feuille de style en qss
-- ok - layout conteneur et sous blocs (hors menu, tool, status) / remplacer par des splitters
-- ok - une barre de status en bas avec :
+- ok [ une fenètre principale
+- ok [ une feuille de style en qss
+- ok [ layout conteneur et sous blocs (hors menu, tool, status) / remplacer par des splitters
+- ok [ une barre de status en bas avec :
 - ok --- un message timé
 - ok --- une barre de progression
 - ok --- un label status notification
 - ok --- un label status user
 - ok --- un label status timestamp du fichier de données
 - ok --- un label status du dernier item log
-- ok - fichier conf pour les messages préenregistré (configparser)
-- ok - fichier ini pour le programme (configparser)
-- ok - une boite à outils (icones 32)
-- ok - un menu (icones 32)
+- ok [ fichier conf pour les messages préenregistré (configparser)
+- ok [ fichier ini pour le programme (configparser)
+- ok [ une boite à outils (icones 32)
+- ok [ un menu (icones 32)
 - ok --- fichier / édition / A propos
 - ok --- les actions associées au menu et toolbar
-- ok - une icone application (icones 512)
-- ok - dans le layout mid-W
+- ok [ une icone application (icones 512)
+- ok [ dans le layout mid-W
 - ok --- un Treeview pour les données json
 - ok --- un TreeView pour les dir
 - ok --- splitter pour séparer et ajuster
-- ok - un journal d'évènement appli (file et stdout)
+- ok [ un journal d'évènement appli (file et stdout)
 - ok --- log file par jour
 - ok --- créer un journal de log et archiver les actions
 - ok --- nettoyer le msg info
@@ -43,9 +43,9 @@ associer les tips avec messages.conf et msglogger
 Nettoyer les icones
 
 ACTION
-- ok - message bienvenue
-- ok - affiche dir
-- ok - boite dialogue fermeture
+- ok [ message bienvenue
+- ok [ affiche dir
+- ok [ boite dialogue fermeture
 - todo - fenetre modale création entité (via designer6)
 - affiche json data
 - Créer une entité

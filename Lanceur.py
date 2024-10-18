@@ -11,7 +11,8 @@ from pathlib import Path
 from PySide6.QtCore import(
     QSize,
     Qt,
-    QDir
+    QDir,
+    QRect
 )
 from PySide6.QtGui import(
     QAction,
@@ -29,6 +30,7 @@ from PySide6.QtWidgets import(
     QPushButton,
     QWidget,
     QVBoxLayout,
+    QHBoxLayout,
     QGridLayout,
     QTextEdit,
     QTabWidget,
@@ -419,25 +421,31 @@ class CustomDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        self.setWindowTitle("Création d'une entité")
+        # self.setWindowTitle("Création d'une entité")
 
-        QBtn = (
-            QDialogButtonBox.Ok | QDialogButtonBox.Cancel
-            )
+        # QBtn = (
+        #     QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+        #     )
 
-        self.buttonBox = QDialogButtonBox(QBtn)
-        self.buttonBox.accepted.connect(self.accept)
-        self.buttonBox.rejected.connect(self.reject)
+        # self.buttonBox = QDialogButtonBox(QBtn)
+        # self.buttonBox.accepted.connect(self.accept)
+        # self.buttonBox.rejected.connect(self.reject)
 
-        layout = QVBoxLayout()
-        message = QLabel("Something happened, is that OK?")
-        nom = QLineEdit()
-        layout.addWidget(message)
-        layout.addWidget(nom)
-        layout.addWidget(self.buttonBox)
-        self.setLayout(layout)
+        # layout = QVBoxLayout()
+        # message = QLabel("Something happened, is that OK?")
+        # nom = QLineEdit()
+        # layout.addWidget(message)
+        # layout.addWidget(nom)
+        # layout.addWidget(self.buttonBox)
+        # self.setLayout(layout)
 
-
+        self.resize(541, 126)
+        self.setGeometry(QRect(11, 11, 520, 106))
+        label_1 = QLabel()
+        label_1.setMinimumSize(QSize(255, 0))
+        label_1.setWordWrap(True)
+        layout = QHBoxLayout()
+        layout.addWidget(label_1)
 
 
 
