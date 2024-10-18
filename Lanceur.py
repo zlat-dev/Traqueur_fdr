@@ -421,37 +421,48 @@ class CustomDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        # self.setWindowTitle("Création d'une entité")
-
-        # QBtn = (
-        #     QDialogButtonBox.Ok | QDialogButtonBox.Cancel
-        #     )
-
-        # self.buttonBox = QDialogButtonBox(QBtn)
-        # self.buttonBox.accepted.connect(self.accept)
-        # self.buttonBox.rejected.connect(self.reject)
-
-        # layout = QVBoxLayout()
-        # message = QLabel("Something happened, is that OK?")
-        # nom = QLineEdit()
-        # layout.addWidget(message)
-        # layout.addWidget(nom)
-        # layout.addWidget(self.buttonBox)
-        # self.setLayout(layout)
-
-        self.resize(541, 126)
-        self.setGeometry(QRect(11, 11, 520, 106))
-        label_1 = QLabel()
+        self.resize(540, 130)
+        self.setWindowTitle("Création d'une entité")
+        label_1 = QLabel("Nom de l'entité pour laquelle une feuille de route doit être réalisée")
         label_1.setMinimumSize(QSize(255, 0))
         label_1.setWordWrap(True)
-        layout = QHBoxLayout()
-        layout.addWidget(label_1)
-
-
-
-
-
-
+        lineEdit_1 = QLineEdit()
+        lineEdit_1.setMinimumSize(QSize(255,0))
+        # lineEdit_1.setPlaceholderText("Placeholder Text")
+        lineEdit_1.setFocus()
+        
+        vertlayout = QVBoxLayout()
+        
+        horizLayout_1 = QHBoxLayout()
+        horizLayout_1.addWidget(label_1)
+        horizLayout_1.addWidget(lineEdit_1)
+        
+        vertlayout.addLayout(horizLayout_1)
+        
+        label_2 = QLabel("Intitulé de la cible à atteindre")
+        label_2.setMinimumSize(QSize(255, 0))
+        label_2.setWordWrap(True)
+        lineEdit_2 = QLineEdit()
+        lineEdit_2.setMinimumSize(QSize(255,0))
+        # lineEdit_2.setPlaceholderText("Placeholder Text")
+        
+        horizLayout_2 = QHBoxLayout()
+        horizLayout_2.addWidget(label_2)
+        horizLayout_2.addWidget(lineEdit_2)
+        
+        vertlayout.addLayout(horizLayout_2)
+        
+        QBtn = (
+            QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+            )
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
+        
+        vertlayout.addWidget(self.buttonBox)
+        
+        self.setLayout(vertlayout)
+        
 # ----------------------------------------------------------------
 # Crée l'application
 # et l'affiche

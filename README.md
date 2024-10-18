@@ -46,7 +46,8 @@ ACTION
 - ok [ message bienvenue
 - ok [ affiche dir
 - ok [ boite dialogue fermeture
-- todo - fenetre modale création entité (via designer6)
+- ok [ fenetre modale création entité (via designer6)
+- todo enregistrer entité dans json
 - affiche json data
 - Créer une entité
 - Créer des cibles pour cette entité
