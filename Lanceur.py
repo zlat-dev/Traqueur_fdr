@@ -11,8 +11,7 @@ from pathlib import Path
 from PySide6.QtCore import(
     QSize,
     Qt,
-    QDir,
-    QRect
+    QDir
 )
 from PySide6.QtGui import(
     QAction,
@@ -49,7 +48,8 @@ from PySide6.QtWidgets import(
     QLineEdit,
     QLCDNumber,
     QDialog,
-    QDialogButtonBox
+    QDialogButtonBox,
+    QScrollArea
 )
 # ----------------------------------------------------------------
 # modules perso
@@ -222,20 +222,22 @@ class MainWindow(QMainWindow):
         # toolbar.setIconSize(QSize(16, 16))
         # toolbar.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
         self.addToolBar(toolbar)
-        toolbar.addAction(self.button_action1)
+        toolbar.addAction(self.actionNewE)
+        toolbar.addAction(self.actionNewC)
         toolbar.addSeparator()
-        toolbar.addAction(self.button_action2)
-        toolbar.addSeparator()
-        toolbar.addWidget(QLabel("Exemple"))
-        toolbar.addWidget(QCheckBox())
+        toolbar.addAction(self.actAbout)
+        toolbar.addAction(self.actionExit)
                 
         toolbar1 = self.addToolBar("Standard ToolBar")
-        toolbar1.addAction(self.actionNewE)
+        toolbar1.addAction(self.button_action1)
+        toolbar1.addSeparator()
+        toolbar1.addAction(self.button_action2)
+        toolbar1.addSeparator()
+        toolbar1.addWidget(QLabel("Exemple"))
+        toolbar1.addWidget(QCheckBox())
         toolbar1.addSeparator()
         toolbar1.addAction(self.actionOpen)
         toolbar1.addAction(self.actionSave)
-        toolbar1.addSeparator()
-        toolbar1.addAction(self.actionExit)
 
         toolbar2 = self.addToolBar("Edit ToolBar")
         toolbar2.addAction(self.actUndo)
@@ -264,21 +266,21 @@ class MainWindow(QMainWindow):
         file_menu = menu.addMenu("Administration")
         file_menu.addAction(self.actionNewE)
         file_menu.addAction(self.actionNewC)
-        file_menu.addSeparator()
+        file_menu.addSeparator()        
+        file_menu.addAction(self.actionExit)
+        
+        file_menu = menu.addMenu("Edition")
         file_menu.addAction(self.actionOpen)
         file_menu.addAction(self.actionSave)
         file_menu.addSeparator()        
         file_menu.addAction(self.button_action1)        
         file_menu.addSeparator()
         file_menu.addAction(self.button_action2)
-        file_menu.addSeparator()
-        file_menu.addAction(self.actionExit)
-        
-        file_menu = menu.addMenu("Edition")
         
         file_menu = menu.addMenu("Analyse")
         
         file_menu = menu.addMenu("A propos")
+        file_menu.addAction(self.actAbout)
         # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
         # journalisation
         TraqLogW.param_log_function("user","INFO","Menu créé")
@@ -336,12 +338,12 @@ class MainWindow(QMainWindow):
         icoNewE=icoParser+"preferences-system-network.svg" 
         self.actionNewE = QAction(QIcon(icoNewE), "Créer une entité", self)
         self.actionNewE.setStatusTip("Nouvelle entité")
-        self.actionNewE.triggered.connect(self.newEntite)
+        self.actionNewE.triggered.connect(self.fct_newEntite)
         
         icoNewC=icoParser+"preferences-plugin.svg" 
         self.actionNewC = QAction(QIcon(icoNewC), "Créer une cible", self)
         self.actionNewC.setStatusTip("Nouvelle cible")
-        self.actionNewC.triggered.connect(self.newCible)
+        self.actionNewC.triggered.connect(self.fct_newCible)
         
         icoOpen=icoParser+"actions/16/rating.svg" 
         self.actionOpen = QAction(QIcon(icoOpen), "&Open...", self)
@@ -380,10 +382,11 @@ class MainWindow(QMainWindow):
         icoAbout=icoParser+"help-about.svg"
         self.actAbout = QAction(QIcon(icoAbout), "About...", self)
         self.actAbout.setStatusTip("About...")
+        self.actAbout.triggered.connect(self.fct_About)
         # 
-    def newEntite(self, Dialog):
-        dlg = CustomDialog(self)
-        if dlg.exec():
+    def fct_newEntite(self, Dialog):
+        dlg_entite = CustomDialog_Entite(self)
+        if dlg_entite.exec():
             # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
             # journalisation
             TraqLogW.param_log_function("user","INFO","Création d'une entité")
@@ -393,12 +396,30 @@ class MainWindow(QMainWindow):
             # journalisation
             TraqLogW.param_log_function("user","INFO","Annulation création d'une entité")
             #
-    def newCible(self):
-        print("Création d'une nouvelle cible")
-        # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
-        # journalisation
-        TraqLogW.param_log_function("user","INFO","Création d'une cible")
-        #
+    def fct_newCible(self,Dialog):
+        dlg_cible = CustomDialog_Cible(self)
+        if dlg_cible.exec():
+            # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
+            # journalisation
+            TraqLogW.param_log_function("user","INFO","Création d'une nouvelle cible")
+            #
+        else:
+            # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
+            # journalisation
+            TraqLogW.param_log_function("user","INFO","Annulation création d'une nouvelle cible")
+            #
+    def fct_About(self, Dialog):
+        dlg_about = CustomDialog_About(self)
+        if dlg_about.exec():
+            # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
+            # journalisation
+            TraqLogW.param_log_function("user","INFO","Affichage A propos")
+            #
+        else:
+            # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
+            # journalisation
+            TraqLogW.param_log_function("user","INFO","Non affichage A propos")
+            #
     # ----------------------------------------------------------------
     # Gestion de la fermeture
     def closeEvent(self, event: QCloseEvent) -> None:
@@ -417,7 +438,7 @@ class MainWindow(QMainWindow):
 # Crée les subclass
 # et les affiche
 # ----------------------------------------------------------------   
-class CustomDialog(QDialog):
+class CustomDialog_Entite(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
 
@@ -439,7 +460,7 @@ class CustomDialog(QDialog):
         
         vertlayout.addLayout(horizLayout_1)
         
-        label_2 = QLabel("Intitulé de la cible à atteindre")
+        label_2 = QLabel("Nom abrégé de l'entité")
         label_2.setMinimumSize(QSize(255, 0))
         label_2.setWordWrap(True)
         lineEdit_2 = QLineEdit()
@@ -462,7 +483,96 @@ class CustomDialog(QDialog):
         vertlayout.addWidget(self.buttonBox)
         
         self.setLayout(vertlayout)
+class CustomDialog_Cible(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        self.resize(540, 130)
+        self.setWindowTitle("Création d'une cible")
+        label_1 = QLabel("Nom de la cible que la feuille de route doit atteindre")
+        label_1.setMinimumSize(QSize(255, 0))
+        label_1.setWordWrap(True)
+        lineEdit_1 = QLineEdit()
+        lineEdit_1.setMinimumSize(QSize(255,0))
+        # lineEdit_1.setPlaceholderText("Placeholder Text")
+        lineEdit_1.setFocus()
         
+        vertlayout = QVBoxLayout()
+        
+        horizLayout_1 = QHBoxLayout()
+        horizLayout_1.addWidget(label_1)
+        horizLayout_1.addWidget(lineEdit_1)
+        
+        vertlayout.addLayout(horizLayout_1)
+        
+        label_2 = QLabel("Nom abrégé de la cible")
+        label_2.setMinimumSize(QSize(255, 0))
+        label_2.setWordWrap(True)
+        lineEdit_2 = QLineEdit()
+        lineEdit_2.setMinimumSize(QSize(255,0))
+        # lineEdit_2.setPlaceholderText("Placeholder Text")
+        
+        horizLayout_2 = QHBoxLayout()
+        horizLayout_2.addWidget(label_2)
+        horizLayout_2.addWidget(lineEdit_2)
+        
+        vertlayout.addLayout(horizLayout_2)
+        
+        QBtn = (
+            QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+            )
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
+        
+        vertlayout.addWidget(self.buttonBox)
+        
+        self.setLayout(vertlayout)
+class CustomDialog_About(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        self.resize(550, 250)
+        # self.setGeometry(600, 100, 1000, 900)
+        self.setWindowTitle("A propos")
+        
+        scrollArea_1 = QScrollArea()
+        vbox = QVBoxLayout()
+        
+        # About_txt = QLabel("TextLabelText LabelTextLabelTextLabel TextLabelTextLabelText LabelTextLabelTextLabel TextLabelTextLabelText LabelTextLabelTextLabelText LabelTextLabelTextLabelText LabelTextLabelTextLabel TextLabelTextLabelTextLabel TextLabelTextLabelTextLabel TextLabelTextLabelTextLabel TextLabelTextLabelTextLabel TextLabelTextLabelTextLabelT    extLabelTextLabelTextLabelTextL abelTextLabelTextLabelTextLabel TextLabelTextLabelTextLabelTe xtLabelTextLabelTextLabel")
+        
+
+        def fillEditor2(editor):
+            # On charge le contenu du fichier dans l'éditeur
+            with open("README.md", "r") as file:
+                content = "".join(file.readlines())
+            About_txt.setText(content)
+        
+        About_txt = QTextEdit()
+        fillEditor2(About_txt)
+                
+        # About_txt.setMinimumSize(QSize(255, 0))
+        # About_txt.setWordWrap(True)
+        vbox.addWidget(About_txt)
+        
+        scrollArea_1.setGeometry(600, 100, 1000, 900)
+        scrollArea_1.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        scrollArea_1.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        scrollArea_1.setWidgetResizable(True)
+        scrollArea_1.setWidget(About_txt)
+        scrollArea_1.setLayout(vbox)
+        
+        QBtn = (
+            QDialogButtonBox.Ok
+            )
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.accepted.connect(self.accept)
+                
+        vbox2 = QVBoxLayout()        
+        vbox2.addWidget(scrollArea_1)
+        vbox2.addWidget(self.buttonBox)
+        
+        self.setLayout(vbox2)        
 # ----------------------------------------------------------------
 # Crée l'application
 # et l'affiche
