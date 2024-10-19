@@ -1,6 +1,6 @@
 Traqueur_fdr
-@zlat
-2024
+@zlatko
+20242008
 
 Application destinée à gérer la répartition des tâches entre agents et les représenter dans une feuille de route globale d'un organisme.
 But pédagogique personnel pour apprendre python via pyside6.
