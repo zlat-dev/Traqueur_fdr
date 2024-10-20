@@ -72,6 +72,145 @@ class Color(QWidget):
         palette.setColor(QPalette.Window, QColor(color))
         self.setPalette(palette)
 # ----------------------------------------------------------------
+# Crée les subclass
+# et les affiche
+# ----------------------------------------------------------------   
+class CustomDialog_Entite(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        self.resize(540, 130)
+        self.setWindowTitle("Création d'une entité")
+        label_1 = QLabel("Nom de l'entité pour laquelle une feuille de route doit être réalisée")
+        label_1.setMinimumSize(QSize(255, 0))
+        label_1.setWordWrap(True)
+        lineEdit_1 = QLineEdit()
+        lineEdit_1.setMinimumSize(QSize(255,0))
+        # lineEdit_1.setPlaceholderText("Placeholder Text")
+        lineEdit_1.setFocus()
+        
+        vertlayout = QVBoxLayout()
+        
+        horizLayout_1 = QHBoxLayout()
+        horizLayout_1.addWidget(label_1)
+        horizLayout_1.addWidget(lineEdit_1)
+        
+        vertlayout.addLayout(horizLayout_1)
+        
+        label_2 = QLabel("Nom abrégé de l'entité")
+        label_2.setMinimumSize(QSize(255, 0))
+        label_2.setWordWrap(True)
+        lineEdit_2 = QLineEdit()
+        lineEdit_2.setMinimumSize(QSize(255,0))
+        # lineEdit_2.setPlaceholderText("Placeholder Text")
+        
+        horizLayout_2 = QHBoxLayout()
+        horizLayout_2.addWidget(label_2)
+        horizLayout_2.addWidget(lineEdit_2)
+        
+        vertlayout.addLayout(horizLayout_2)
+        
+        QBtn = (
+            QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+            )
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
+        
+        vertlayout.addWidget(self.buttonBox)
+        
+        self.setLayout(vertlayout)
+class CustomDialog_Cible(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        self.resize(540, 130)
+        self.setWindowTitle("Création d'une cible")
+        label_1 = QLabel("Nom de la cible que la feuille de route doit atteindre")
+        label_1.setMinimumSize(QSize(255, 0))
+        label_1.setWordWrap(True)
+        lineEdit_1 = QLineEdit()
+        lineEdit_1.setMinimumSize(QSize(255,0))
+        # lineEdit_1.setPlaceholderText("Placeholder Text")
+        lineEdit_1.setFocus()
+        
+        vertlayout = QVBoxLayout()
+        
+        horizLayout_1 = QHBoxLayout()
+        horizLayout_1.addWidget(label_1)
+        horizLayout_1.addWidget(lineEdit_1)
+        
+        vertlayout.addLayout(horizLayout_1)
+        
+        label_2 = QLabel("Nom abrégé de la cible")
+        label_2.setMinimumSize(QSize(255, 0))
+        label_2.setWordWrap(True)
+        lineEdit_2 = QLineEdit()
+        lineEdit_2.setMinimumSize(QSize(255,0))
+        # lineEdit_2.setPlaceholderText("Placeholder Text")
+        
+        horizLayout_2 = QHBoxLayout()
+        horizLayout_2.addWidget(label_2)
+        horizLayout_2.addWidget(lineEdit_2)
+        
+        vertlayout.addLayout(horizLayout_2)
+        
+        QBtn = (
+            QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+            )
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
+        
+        vertlayout.addWidget(self.buttonBox)
+        
+        self.setLayout(vertlayout)
+class CustomDialog_About(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        self.resize(550, 250)
+        # self.setGeometry(600, 100, 1000, 900)
+        self.setWindowTitle("A propos")
+        
+        scrollArea_1 = QScrollArea()
+        vbox = QVBoxLayout()
+        
+        # About_txt = QLabel("TextLabelText LabelTextLabelTextLabel TextLabelTextLabelText LabelTextLabelTextLabel TextLabelTextLabelText LabelTextLabelTextLabelText LabelTextLabelTextLabelText LabelTextLabelTextLabel TextLabelTextLabelTextLabel TextLabelTextLabelTextLabel TextLabelTextLabelTextLabel TextLabelTextLabelTextLabel TextLabelTextLabelTextLabelT    extLabelTextLabelTextLabelTextL abelTextLabelTextLabelTextLabel TextLabelTextLabelTextLabelTe xtLabelTextLabelTextLabel")
+        
+
+        def fillEditor2(editor):
+            # On charge le contenu du fichier dans l'éditeur
+            with open("README.md", "r") as file:
+                content = "".join(file.readlines())
+            About_txt.setText(content)
+        
+        About_txt = QTextEdit()
+        fillEditor2(About_txt)
+                
+        # About_txt.setMinimumSize(QSize(255, 0))
+        # About_txt.setWordWrap(True)
+        vbox.addWidget(About_txt)
+        
+        scrollArea_1.setGeometry(600, 100, 1000, 900)
+        scrollArea_1.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        scrollArea_1.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        scrollArea_1.setWidgetResizable(True)
+        scrollArea_1.setWidget(About_txt)
+        scrollArea_1.setLayout(vbox)
+        
+        QBtn = (
+            QDialogButtonBox.Ok
+            )
+        self.buttonBox = QDialogButtonBox(QBtn)
+        self.buttonBox.accepted.connect(self.accept)
+                
+        vbox2 = QVBoxLayout()        
+        vbox2.addWidget(scrollArea_1)
+        vbox2.addWidget(self.buttonBox)
+        
+        self.setLayout(vbox2)
+# ----------------------------------------------------------------
 # Subclass QMainWindow to customize your application's main window
 # Fenètre principale
 # ----------------------------------------------------------------
@@ -434,145 +573,6 @@ class MainWindow(QMainWindow):
         else:
             event.ignore()
             #             
-# ----------------------------------------------------------------
-# Crée les subclass
-# et les affiche
-# ----------------------------------------------------------------   
-class CustomDialog_Entite(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-
-        self.resize(540, 130)
-        self.setWindowTitle("Création d'une entité")
-        label_1 = QLabel("Nom de l'entité pour laquelle une feuille de route doit être réalisée")
-        label_1.setMinimumSize(QSize(255, 0))
-        label_1.setWordWrap(True)
-        lineEdit_1 = QLineEdit()
-        lineEdit_1.setMinimumSize(QSize(255,0))
-        # lineEdit_1.setPlaceholderText("Placeholder Text")
-        lineEdit_1.setFocus()
-        
-        vertlayout = QVBoxLayout()
-        
-        horizLayout_1 = QHBoxLayout()
-        horizLayout_1.addWidget(label_1)
-        horizLayout_1.addWidget(lineEdit_1)
-        
-        vertlayout.addLayout(horizLayout_1)
-        
-        label_2 = QLabel("Nom abrégé de l'entité")
-        label_2.setMinimumSize(QSize(255, 0))
-        label_2.setWordWrap(True)
-        lineEdit_2 = QLineEdit()
-        lineEdit_2.setMinimumSize(QSize(255,0))
-        # lineEdit_2.setPlaceholderText("Placeholder Text")
-        
-        horizLayout_2 = QHBoxLayout()
-        horizLayout_2.addWidget(label_2)
-        horizLayout_2.addWidget(lineEdit_2)
-        
-        vertlayout.addLayout(horizLayout_2)
-        
-        QBtn = (
-            QDialogButtonBox.Ok | QDialogButtonBox.Cancel
-            )
-        self.buttonBox = QDialogButtonBox(QBtn)
-        self.buttonBox.accepted.connect(self.accept)
-        self.buttonBox.rejected.connect(self.reject)
-        
-        vertlayout.addWidget(self.buttonBox)
-        
-        self.setLayout(vertlayout)
-class CustomDialog_Cible(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-
-        self.resize(540, 130)
-        self.setWindowTitle("Création d'une cible")
-        label_1 = QLabel("Nom de la cible que la feuille de route doit atteindre")
-        label_1.setMinimumSize(QSize(255, 0))
-        label_1.setWordWrap(True)
-        lineEdit_1 = QLineEdit()
-        lineEdit_1.setMinimumSize(QSize(255,0))
-        # lineEdit_1.setPlaceholderText("Placeholder Text")
-        lineEdit_1.setFocus()
-        
-        vertlayout = QVBoxLayout()
-        
-        horizLayout_1 = QHBoxLayout()
-        horizLayout_1.addWidget(label_1)
-        horizLayout_1.addWidget(lineEdit_1)
-        
-        vertlayout.addLayout(horizLayout_1)
-        
-        label_2 = QLabel("Nom abrégé de la cible")
-        label_2.setMinimumSize(QSize(255, 0))
-        label_2.setWordWrap(True)
-        lineEdit_2 = QLineEdit()
-        lineEdit_2.setMinimumSize(QSize(255,0))
-        # lineEdit_2.setPlaceholderText("Placeholder Text")
-        
-        horizLayout_2 = QHBoxLayout()
-        horizLayout_2.addWidget(label_2)
-        horizLayout_2.addWidget(lineEdit_2)
-        
-        vertlayout.addLayout(horizLayout_2)
-        
-        QBtn = (
-            QDialogButtonBox.Ok | QDialogButtonBox.Cancel
-            )
-        self.buttonBox = QDialogButtonBox(QBtn)
-        self.buttonBox.accepted.connect(self.accept)
-        self.buttonBox.rejected.connect(self.reject)
-        
-        vertlayout.addWidget(self.buttonBox)
-        
-        self.setLayout(vertlayout)
-class CustomDialog_About(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-
-        self.resize(550, 250)
-        # self.setGeometry(600, 100, 1000, 900)
-        self.setWindowTitle("A propos")
-        
-        scrollArea_1 = QScrollArea()
-        vbox = QVBoxLayout()
-        
-        # About_txt = QLabel("TextLabelText LabelTextLabelTextLabel TextLabelTextLabelText LabelTextLabelTextLabel TextLabelTextLabelText LabelTextLabelTextLabelText LabelTextLabelTextLabelText LabelTextLabelTextLabel TextLabelTextLabelTextLabel TextLabelTextLabelTextLabel TextLabelTextLabelTextLabel TextLabelTextLabelTextLabel TextLabelTextLabelTextLabelT    extLabelTextLabelTextLabelTextL abelTextLabelTextLabelTextLabel TextLabelTextLabelTextLabelTe xtLabelTextLabelTextLabel")
-        
-
-        def fillEditor2(editor):
-            # On charge le contenu du fichier dans l'éditeur
-            with open("README.md", "r") as file:
-                content = "".join(file.readlines())
-            About_txt.setText(content)
-        
-        About_txt = QTextEdit()
-        fillEditor2(About_txt)
-                
-        # About_txt.setMinimumSize(QSize(255, 0))
-        # About_txt.setWordWrap(True)
-        vbox.addWidget(About_txt)
-        
-        scrollArea_1.setGeometry(600, 100, 1000, 900)
-        scrollArea_1.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        scrollArea_1.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        scrollArea_1.setWidgetResizable(True)
-        scrollArea_1.setWidget(About_txt)
-        scrollArea_1.setLayout(vbox)
-        
-        QBtn = (
-            QDialogButtonBox.Ok
-            )
-        self.buttonBox = QDialogButtonBox(QBtn)
-        self.buttonBox.accepted.connect(self.accept)
-                
-        vbox2 = QVBoxLayout()        
-        vbox2.addWidget(scrollArea_1)
-        vbox2.addWidget(self.buttonBox)
-        
-        self.setLayout(vbox2)        
 # ----------------------------------------------------------------
 # Crée l'application
 # et l'affiche
