@@ -1,0 +1,27 @@
+{
+  "entite_nom": "aaa",
+  "entite_code": "xxx",
+  "entite_cibles": [
+    {
+      "cible_nom": "",
+      "cible_code": "",
+      "cible_avancement": ""
+    }
+  ],
+  "entite_agents": [
+    {
+      "agent_nom": "",
+      "agent_poste": "",
+      "agent_code": "",
+      "agent_tache_nom": "",
+      "agent_tache_description":"",
+      "agent_tache_listactions": [
+        "",
+        "",
+        ""
+      ],
+      "agent_tache_criteredereussite": "",
+      "agent_tache_avancement": ""
+    }
+  ]
+}
