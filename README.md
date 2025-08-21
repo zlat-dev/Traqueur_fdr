@@ -2,8 +2,25 @@ Traqueur_fdr
 @zlatko
 20242008
 
+## Getting Started
+
 Application destinée à gérer la répartition des tâches entre agents et les représenter dans une feuille de route globale d'un organisme.
 But pédagogique personnel pour apprendre python via pyside6.
+
+## Folder Structure
+
+L'espace de travail contient :
+
+- `src`: the folder to maintain sources
+- `lib`: the folder to maintain dependencies
+
+## Dependency Management
+
+- `Icon_set_png`: pour les icones et images
+- `Icon_set_svg`: pour les icones svg
+- `Style`: pour l'habillage de l'interface
+
+## Tasks
 
 ORGANISATION
 - ok [ une fenètre principale
