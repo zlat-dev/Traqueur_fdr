@@ -66,6 +66,7 @@ ACTION
 TODO
 - todo revoir box cible pour ajouter une cible à choisir parmi
 - todo enregistrer entité dans json
+- travailler sur l'intégration de modules py au lieu des subclass (SaisieEntite)
 
 RESTE
 - des fichiers json pour les données

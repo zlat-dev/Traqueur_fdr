@@ -56,6 +56,8 @@ from PySide6.QtWidgets import(
 import TraqParserconfig
 import TraqParsernotif
 import TraqLogW
+from TraqSaisieEntite import Application as TraqSaisieEntite
+
 # >>>''''''''''''''''''''''''''''''''''''''''''''''''''''''''''<<<
 # journalisation
 TraqLogW.param_log_function("user","INFO","Dépendances chargées")
@@ -79,47 +81,51 @@ class CustomDialog_Entite(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        self.resize(540, 130)
-        self.setWindowTitle("Création d'une entité")
-        label_1 = QLabel("Nom de l'entité pour laquelle une feuille de route doit être réalisée")
-        label_1.setMinimumSize(QSize(255, 0))
-        label_1.setWordWrap(True)
-        lineEdit_1 = QLineEdit()
-        lineEdit_1.setMinimumSize(QSize(255,0))
-        # lineEdit_1.setPlaceholderText("Placeholder Text")
-        lineEdit_1.setFocus()
+    #     self.resize(540, 130)
+    #     self.setWindowTitle("Création d'une entité")
+    #     label_1 = QLabel("Nom de l'entité pour laquelle une feuille de route doit être réalisée")
+    #     label_1.setMinimumSize(QSize(255, 0))
+    #     label_1.setWordWrap(True)
+    #     lineEdit_1 = QLineEdit()
+    #     lineEdit_1.setMinimumSize(QSize(255,0))
+    #     # lineEdit_1.setPlaceholderText("Placeholder Text")
+    #     lineEdit_1.setFocus()
         
-        vertlayout = QVBoxLayout()
+    #     vertlayout = QVBoxLayout()
         
-        horizLayout_1 = QHBoxLayout()
-        horizLayout_1.addWidget(label_1)
-        horizLayout_1.addWidget(lineEdit_1)
+    #     horizLayout_1 = QHBoxLayout()
+    #     horizLayout_1.addWidget(label_1)
+    #     horizLayout_1.addWidget(lineEdit_1)
         
-        vertlayout.addLayout(horizLayout_1)
+    #     vertlayout.addLayout(horizLayout_1)
         
-        label_2 = QLabel("Nom abrégé de l'entité")
-        label_2.setMinimumSize(QSize(255, 0))
-        label_2.setWordWrap(True)
-        lineEdit_2 = QLineEdit()
-        lineEdit_2.setMinimumSize(QSize(255,0))
-        # lineEdit_2.setPlaceholderText("Placeholder Text")
+    #     label_2 = QLabel("Nom abrégé de l'entité")
+    #     label_2.setMinimumSize(QSize(255, 0))
+    #     label_2.setWordWrap(True)
+    #     lineEdit_2 = QLineEdit()
+    #     lineEdit_2.setMinimumSize(QSize(255,0))
+    #     # lineEdit_2.setPlaceholderText("Placeholder Text")
         
-        horizLayout_2 = QHBoxLayout()
-        horizLayout_2.addWidget(label_2)
-        horizLayout_2.addWidget(lineEdit_2)
+    #     horizLayout_2 = QHBoxLayout()
+    #     horizLayout_2.addWidget(label_2)
+    #     horizLayout_2.addWidget(lineEdit_2)
         
-        vertlayout.addLayout(horizLayout_2)
+    #     vertlayout.addLayout(horizLayout_2)
         
-        QBtn = (
-            QDialogButtonBox.Ok | QDialogButtonBox.Cancel
-            )
-        self.buttonBox = QDialogButtonBox(QBtn)
-        self.buttonBox.accepted.connect(self.accept)
-        self.buttonBox.rejected.connect(self.reject)
+    #     QBtn = (
+    #         QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+    #         )
+    #     self.buttonBox = QDialogButtonBox(QBtn)
+    #     self.buttonBox.accepted.connect(self.accept)
+    #     self.buttonBox.rejected.connect(self.reject)
         
-        vertlayout.addWidget(self.buttonBox)
+    #     vertlayout.addWidget(self.buttonBox)
         
-        self.setLayout(vertlayout)
+    #     self.setLayout(vertlayout)
+        
+        saisie_entite_window = TraqSaisieEntite()
+        saisie_entite_window.show()
+        
 class CustomDialog_Cible(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
